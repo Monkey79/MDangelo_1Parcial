@@ -22,7 +22,11 @@
 #define TRUE  1
 #define FALSE 0
 
+#define HARCODE_CUSTOMER 5
+#define HARCODE_ON 1
+
 int _createTheCustomer(Customer customers[], int length);
+int _createHarcordCustomer(Customer customers[], int length);
 int _updateTheCustomer(Customer customers[], int length);
 int _getFirstEmptyCustomerIndex(Customer customers[], int length);
 int _deleteTheCustomerAndHisOrders(Customer customers[], int length, Order orders[], int ordLength);
@@ -37,7 +41,9 @@ int mngCustomerCreation(Customer customers[], int length){
 		__fpurge(stdin);
 		scanf("%c", &usrOpt);
 	}while(usrOpt!='s' && usrOpt!='n');
-	if(usrOpt == 's') status = _createTheCustomer(customers, length);
+	if(usrOpt == 's'){
+		status = (HARCODE_ON==TRUE)?_createHarcordCustomer(customers, length):_createTheCustomer(customers, length);
+	}
 	return status;
 }
 
@@ -83,6 +89,26 @@ int mngShowAllCustomers(Customer customers[], int length) {
 
 
 //===========Private functions============================
+int _createHarcordCustomer(Customer customers[], int length){
+	char dmyCoName[51];
+	char dmyCuit[13];
+	char dmyAddress[51];
+	char dmyLocation[51];
+	int status;
+
+	for(int i=0;i<HARCODE_CUSTOMER;i++) {
+		i = _getFirstEmptyCustomerIndex(customers, length);
+		if(i>=0){
+			//strcpy(dmyCoName, "Empresa_%d",(i+1));
+			//strcpy(dmyCuit, "20-569-100-%d",(i+1));
+			//strcpy(dmyAddress, "Peron_00%d",(i+1));
+			strcpy(dmyLocation, "CABA");
+
+			status = crudCstmCreateMe(customers,i,dmyCoName, dmyCuit, dmyAddress, dmyLocation, length);
+		}
+	}
+	return status;
+}
 int _createTheCustomer(Customer customers[], int length) {
 	char dmyCoName[51];
 	char dmyCuit[13];
