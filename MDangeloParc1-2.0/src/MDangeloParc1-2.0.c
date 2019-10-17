@@ -38,7 +38,7 @@
 #define  SHOW_ORDERS_COMPLETED 8
 #define  EXIT 9
 
-void testCreateCustomersLibs();
+#define HARCODE_ON 1
 
 int main(void) {
 	int status;
@@ -49,6 +49,10 @@ int main(void) {
 	status = crudOrdsInitializeAll(orders, ORDERS_TOP);
 	int userSelect = -1;
 
+	if(HARCODE_ON == TRUE){
+		createHarcordCustomer(customers, CUST_TOP);
+		createHarcodeTheOrders(orders,  ORDERS_TOP);
+	}
 	if(status==SUCCESS){
 		do{
 			mngbBuildMenuAndGetUserSelection(&userSelect);
@@ -95,20 +99,3 @@ int main(void) {
 	}
 	return status;
 }
-
-/*oid testCreateCustomersLibs(Customer customers[]){
-	strcpy(customers[0].companyName,"EMPRESA_1 SA");
-	strcpy(customers[0].adress,"PERON 911");
-	strcpy(customers[0].cuit,"20-25645789-7");
-	strcpy(customers[0].location,"CABA");
-
-	strcpy(customers[0].companyName,"EMPRESA_2 SA");
-	strcpy(customers[0].adress,"TUCUMAN 232");
-	strcpy(customers[0].cuit,"20-45645789-7");
-	strcpy(customers[0].location,"CABA");
-
-	strcpy(customers[0].companyName,"EMPRESA_3 SA");
-	strcpy(customers[0].adress,"MARMOL 911");
-	strcpy(customers[0].cuit,"20-65645789-7");
-	strcpy(customers[0].location,"LUJAN");
-}*/

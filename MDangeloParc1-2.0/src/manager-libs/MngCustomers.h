@@ -10,6 +10,7 @@
 
 #include "../crud-libs/CrudCustomers.h"
 #include "../crud-libs/CrudOrders.h"
+	int createHarcordCustomer(Customer customers[], int length);
 	int mngCustomerCreation(Customer customers[], int length);
 	int mngCustomerModification(Customer customers[], int length);
 	int mngCustomerDelete(Customer customers[], int length, Order orders[], int ordLength);

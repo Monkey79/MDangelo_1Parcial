@@ -10,6 +10,7 @@
 
 #include "../crud-libs/CrudOrders.h"
 #include "../crud-libs/CrudCustomers.h"
+	int createHarcodeTheOrders(Order orders[], int length);
 	int mngOrdersCreation(Order orders[], Customer customers[], int length, int custLength);
 	int mngShowAllOrders(Order orders[], int length);
 	int mngProcessOrders(Order orders[], int length);

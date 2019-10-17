@@ -22,11 +22,7 @@
 #define TRUE  1
 #define FALSE 0
 
-#define HARCODE_CUSTOMER 5
-#define HARCODE_ON 1
-
 int _createTheCustomer(Customer customers[], int length);
-int _createHarcordCustomer(Customer customers[], int length);
 int _updateTheCustomer(Customer customers[], int length);
 int _getFirstEmptyCustomerIndex(Customer customers[], int length);
 int _deleteTheCustomerAndHisOrders(Customer customers[], int length, Order orders[], int ordLength);
@@ -42,7 +38,7 @@ int mngCustomerCreation(Customer customers[], int length){
 		scanf("%c", &usrOpt);
 	}while(usrOpt!='s' && usrOpt!='n');
 	if(usrOpt == 's'){
-		status = (HARCODE_ON==TRUE)?_createHarcordCustomer(customers, length):_createTheCustomer(customers, length);
+		status =_createTheCustomer(customers, length);
 	}
 	return status;
 }
@@ -87,28 +83,44 @@ int mngShowAllCustomers(Customer customers[], int length) {
 	return status;
 }
 
-
-//===========Private functions============================
-int _createHarcordCustomer(Customer customers[], int length){
+int createHarcordCustomer(Customer customers[], int length){
 	char dmyCoName[51];
 	char dmyCuit[13];
 	char dmyAddress[51];
 	char dmyLocation[51];
 	int status;
 
-	for(int i=0;i<HARCODE_CUSTOMER;i++) {
-		i = _getFirstEmptyCustomerIndex(customers, length);
-		if(i>=0){
-			//strcpy(dmyCoName, "Empresa_%d",(i+1));
-			//strcpy(dmyCuit, "20-569-100-%d",(i+1));
-			//strcpy(dmyAddress, "Peron_00%d",(i+1));
-			strcpy(dmyLocation, "CABA");
-
-			status = crudCstmCreateMe(customers,i,dmyCoName, dmyCuit, dmyAddress, dmyLocation, length);
-		}
+	int i = _getFirstEmptyCustomerIndex(customers, length);
+	if(i>=0){
+		strcpy(dmyCoName, "Empresa_1");
+		strcpy(dmyCuit, "205691009");
+		strcpy(dmyAddress, "Viamonte 911");
+		strcpy(dmyLocation, "CABA");
+		status = crudCstmCreateMe(customers,i,dmyCoName, dmyCuit, dmyAddress, dmyLocation, length);
 	}
+
+	i = _getFirstEmptyCustomerIndex(customers, length);
+	if(i>=0){
+		strcpy(dmyCoName, "Empresa_2");
+		strcpy(dmyCuit, "2056910010");
+		strcpy(dmyAddress, "Viamonte 912");
+		strcpy(dmyLocation, "CABA");
+		status = crudCstmCreateMe(customers,i,dmyCoName, dmyCuit, dmyAddress, dmyLocation, length);
+	}
+	i = _getFirstEmptyCustomerIndex(customers, length);
+	if(i>=0){
+		strcpy(dmyCoName, "Empresa_3");
+		strcpy(dmyCuit, "2056910011");
+		strcpy(dmyAddress, "Viamonte 913");
+		strcpy(dmyLocation, "CABA");
+		status = crudCstmCreateMe(customers,i,dmyCoName, dmyCuit, dmyAddress, dmyLocation, length);
+	}
+
 	return status;
 }
+
+
+//===========Private functions============================
 int _createTheCustomer(Customer customers[], int length) {
 	char dmyCoName[51];
 	char dmyCuit[13];

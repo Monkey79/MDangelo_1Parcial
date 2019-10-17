@@ -15,11 +15,12 @@
 #define ERROR -1
 #define TRUE  1
 #define FALSE 0
+#define HARCODE_ON 1
 
 int _createTheOrder(Order orders[], int length, int cstmId);
 int _getFirstEmptyOrderIndex(Order orders[], int length);
-int _showAllCustomers();
 int _processTheOrder(Order orders[], int ordIndx,int length);
+int _showAllCustomers();
 
 int mngOrdersCreation(Order orders[], Customer customers[], int length, int custLength) {
 	int status = ERROR;
@@ -31,7 +32,6 @@ int mngOrdersCreation(Order orders[], Customer customers[], int length, int cust
 		__fpurge(stdin);
 		scanf("%c", &usrOpt);
 	}while(usrOpt!='s' && usrOpt!='n');
-
 	if(usrOpt == 's') {
 		//1-listo clientes existentes para pedir ID al usuario
 		status = crudCstmShowAllIds(customers,custLength);
@@ -45,7 +45,6 @@ int mngOrdersCreation(Order orders[], Customer customers[], int length, int cust
 			//3-FInalmente creo el pedido y lo asicio con el respectivo id de cliente
 			status = _createTheOrder(orders, length, custId);
 		}
-
 	}
 	return status;
 }
@@ -72,6 +71,20 @@ int mngProcessOrders(Order orders[], int length){
 int mngShowAllOrders(Order orders[], int length) {
 	return crudOrdsShowAll(orders, length);
 }
+int createHarcodeTheOrders(Order orders[], int length) {
+	int status = ERROR;
+	float kgTotAux;
+	int idx;
+	for(int i=0;i<3;i++){
+		idx = _getFirstEmptyOrderIndex(orders, length);
+		kgTotAux = 2.56+i;
+		status = crudOrdsCreateMe(orders, idx, (i+1), kgTotAux, length);
+	}
+	idx = _getFirstEmptyOrderIndex(orders, length);
+	status = crudOrdsCreateMe(orders, idx, 3, 589.99, length);
+	return status;
+}
+
 //===========Private functions============================
 int _createTheOrder(Order orders[], int length, int cstmId) {
 	int status = ERROR;
