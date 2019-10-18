@@ -23,6 +23,7 @@ struct{
 	int crudOrdsDeleteMe(Order orders[],int length, int cstmId);
 	int crudOrdsGetIndexById(Order orders[], int id, int length, int *index);
 	int crudOrdsShowAll(Order orders[], int length);
+	int crudOrdsShowAllIds(Order orders[], int length);
 
 	int crudOrdsCanUpdateDelete(Order orders[], int length);
 

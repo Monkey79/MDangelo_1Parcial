@@ -13,6 +13,7 @@
 
 #include "commons-libs/MenuBuilder.h"
 #include "commons-libs/PrintHelper.h"
+#include "commons-libs/InfoMng.h"
 
 #include "crud-libs/CrudCustomers.h"
 #include "crud-libs/CrudOrders.h"
@@ -36,7 +37,17 @@
 #define  SHOW_CLIENTS 6
 #define  SHOW_ORDERS_PENDING 7
 #define  SHOW_ORDERS_COMPLETED 8
-#define  EXIT 9
+
+#define  PRINT_MORE_PENDING 9
+#define  PRINT_MORE_COMPLETED 10
+#define  PRINT_MORE_CUSTOMERS 11
+#define  PRINT_MORE_CUSTOMERS_KG 12
+#define  PRINT_LESS_CUSTOMERS_KG 13
+#define  PRINT_MORE_1000_KG 14
+#define  PRINT_LESS_100_KG 15
+
+
+#define  EXIT 29
 
 #define HARCODE_ON 1
 
@@ -89,11 +100,46 @@ int main(void) {
 					printf("\nImprimir pedidos en estado Completado\n");
 					showOrdersCustomersByStatus(customers, orders, "Completado", CUST_TOP, ORDERS_TOP);
 					break;
+				case PRINT_MORE_PENDING:
+					printf("\nImprimir Cliente con mas pedidos Pendiente\n");
+					customerWithMoreOrderStatus(customers, orders,CUST_TOP, ORDERS_TOP, "Pendiente");
+					break;
+				case PRINT_MORE_COMPLETED:
+					printf("\nImprimir Cliente con mas pedidos Completado\n");
+					customerWithMoreOrderStatus(customers, orders,CUST_TOP, ORDERS_TOP, "Completado");
+					break;
+				case PRINT_MORE_CUSTOMERS:
+					printf("\nImprimir Cliente con mas pedidos\n");
+					customerWithMoreOrders(customers, orders,CUST_TOP, ORDERS_TOP);
+					break;
+				case PRINT_MORE_CUSTOMERS_KG:
+					printf("\nImprimir Cliente con mas KG por pedidos\n");
+					customerWithMoreKg(customers, orders,CUST_TOP, ORDERS_TOP);
+					break;
+				case PRINT_LESS_CUSTOMERS_KG:
+					printf("\nImprimir Cliente con menos KG por pedidos\n");
+					customerWithMLessKg(customers, orders,CUST_TOP, ORDERS_TOP);
+					break;
+				case PRINT_MORE_1000_KG:
+					printf("\nImprimir cant Cliente que reciclaron mas de 1000KG\n");
+					customerWithMoreThan1000KgRecicled(customers, orders,CUST_TOP, ORDERS_TOP);
+					break;
+				case PRINT_LESS_100_KG:
+					printf("\nImprimir cant Cliente que reciclaron menos de 100KG\n");
+					customerWithLessThan100KgRecicled(customers, orders,CUST_TOP, ORDERS_TOP);
+					break;
 				default:
 					printf("\nOPCION NO VALIDA = SALIENDO DEL PROGRAMA\n");
 					break;
 			}
-		}while(userSelect==CREATE_CUSTOMER || userSelect==UPDATE_CUSTOMER || userSelect==DELETE_CUSTOMER || userSelect==CREATE_ORDER || userSelect==PROCESS_ORDER || userSelect==SHOW_CLIENTS || userSelect==SHOW_ORDERS_PENDING || userSelect==SHOW_ORDERS_COMPLETED);
+		}while(userSelect==CREATE_CUSTOMER || userSelect==UPDATE_CUSTOMER
+				|| userSelect==DELETE_CUSTOMER || userSelect==CREATE_ORDER
+				|| userSelect==PROCESS_ORDER || userSelect==SHOW_CLIENTS
+				|| userSelect==SHOW_ORDERS_PENDING || userSelect==SHOW_ORDERS_COMPLETED
+				|| userSelect==PRINT_MORE_PENDING || userSelect==PRINT_MORE_COMPLETED
+				|| userSelect==PRINT_MORE_CUSTOMERS || userSelect==PRINT_MORE_CUSTOMERS_KG
+				|| userSelect==PRINT_LESS_CUSTOMERS_KG || userSelect==PRINT_MORE_1000_KG
+				|| userSelect==PRINT_LESS_100_KG);
 	}else {
 		printf("\nERROR=>Application error...!!\n");
 	}

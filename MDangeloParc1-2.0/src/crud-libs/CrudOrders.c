@@ -118,6 +118,18 @@ int crudOrdsShowAll(Order orders[], int length) {
 	}
 	return status;
 }
+int crudOrdsShowAllIds(Order orders[], int length){
+	int status = ERROR;
+	if(orders!= NULL && length>0){
+		status = SUCCESS;
+		for (int i = 0; i < length; i++) {
+			if(orders[i].isEmpty == FALSE){
+				printf("\n***Pedido.Id: %d",orders[i].id);
+			}
+		}
+	}
+	return status;
+}
 
 //chequea si al menos hay una ORDEN cargado para poder o bien hacer una actualizacion o borrado
 int crudOrdsCanUpdateDelete(Order orders[], int length){

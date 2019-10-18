@@ -4,14 +4,17 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
+../src/commons-libs/InfoMng.c \
 ../src/commons-libs/MenuBuilder.c \
 ../src/commons-libs/PrintHelper.c 
 
 OBJS += \
+./src/commons-libs/InfoMng.o \
 ./src/commons-libs/MenuBuilder.o \
 ./src/commons-libs/PrintHelper.o 
 
 C_DEPS += \
+./src/commons-libs/InfoMng.d \
 ./src/commons-libs/MenuBuilder.d \
 ./src/commons-libs/PrintHelper.d 
 

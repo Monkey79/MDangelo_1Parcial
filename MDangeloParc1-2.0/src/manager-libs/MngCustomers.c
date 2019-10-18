@@ -29,6 +29,27 @@ int _deleteTheCustomerAndHisOrders(Customer customers[], int length, Order order
 void  _listAllCustomersIds(Customer customers[], int length);
 int _getIdToUpdateOrDelete();
 
+int mngCustomerGetKgTotRecyByCuitAndPlasticType(Customer customers[], int cstLength, Order orders[], int ordLength){
+	int status = ERROR;
+	char cuit[14];
+	int plastType=1;
+
+	printf("\n Ingrese el CUIT\n");
+	__fpurge(stdin);
+	fgets(cuit, 14, stdin);
+
+
+	do{
+		printf("\n Ingrese tipo de plastico [1=hdpe 2=ldpe 3=pp] \n");
+		__fpurge(stdin);
+		//scanf("%d");
+
+	}while(plastType!=1 && plastType!=2 && plastType!=3);
+
+
+	return status;
+}
+
 int mngCustomerCreation(Customer customers[], int length){
 	int status = ERROR;
 	char usrOpt = 's';
@@ -92,30 +113,53 @@ int createHarcordCustomer(Customer customers[], int length){
 
 	int i = _getFirstEmptyCustomerIndex(customers, length);
 	if(i>=0){
-		strcpy(dmyCoName, "Empresa_1");
-		strcpy(dmyCuit, "205691009");
-		strcpy(dmyAddress, "Viamonte 911");
+		strcpy(dmyCoName, "Telefonica");
+		strcpy(dmyCuit, "30-11223344-5");
+		strcpy(dmyAddress, "Lima 1234");
 		strcpy(dmyLocation, "CABA");
 		status = crudCstmCreateMe(customers,i,dmyCoName, dmyCuit, dmyAddress, dmyLocation, length);
 	}
 
 	i = _getFirstEmptyCustomerIndex(customers, length);
 	if(i>=0){
-		strcpy(dmyCoName, "Empresa_2");
-		strcpy(dmyCuit, "2056910010");
-		strcpy(dmyAddress, "Viamonte 912");
+		strcpy(dmyCoName, "DATASOFT");
+		strcpy(dmyCuit, "30-44556677-6");
+		strcpy(dmyAddress, "Corrientes 2547");
 		strcpy(dmyLocation, "CABA");
 		status = crudCstmCreateMe(customers,i,dmyCoName, dmyCuit, dmyAddress, dmyLocation, length);
 	}
 	i = _getFirstEmptyCustomerIndex(customers, length);
 	if(i>=0){
-		strcpy(dmyCoName, "Empresa_3");
-		strcpy(dmyCuit, "2056910011");
-		strcpy(dmyAddress, "Viamonte 913");
-		strcpy(dmyLocation, "CABA");
+		strcpy(dmyCoName, "NESTLE");
+		strcpy(dmyCuit, "30-88995521-9");
+		strcpy(dmyAddress, "cucha cucha 555");
+		strcpy(dmyLocation, "LANUS");
 		status = crudCstmCreateMe(customers,i,dmyCoName, dmyCuit, dmyAddress, dmyLocation, length);
 	}
-
+	i = _getFirstEmptyCustomerIndex(customers, length);
+	if(i>=0){
+		strcpy(dmyCoName, "TERRABUSI");
+		strcpy(dmyCuit, "30-56781423-5");
+		strcpy(dmyAddress, "rocha 784");
+		strcpy(dmyLocation, "QUILMES");
+		status = crudCstmCreateMe(customers,i,dmyCoName, dmyCuit, dmyAddress, dmyLocation, length);
+	}
+	i = _getFirstEmptyCustomerIndex(customers, length);
+	if(i>=0){
+		strcpy(dmyCoName, "DIA");
+		strcpy(dmyCuit, "31-54581253-3");
+		strcpy(dmyAddress, "Mitre 750");
+		strcpy(dmyLocation, "AVELLANEDA");
+		status = crudCstmCreateMe(customers,i,dmyCoName, dmyCuit, dmyAddress, dmyLocation, length);
+	}
+	i = _getFirstEmptyCustomerIndex(customers, length);
+	if(i>=0){
+		strcpy(dmyCoName, "QUILMES");
+		strcpy(dmyCuit, "30-51485759-6");
+		strcpy(dmyAddress, "rocha 741");
+		strcpy(dmyLocation, "QUILMES");
+		status = crudCstmCreateMe(customers,i,dmyCoName, dmyCuit, dmyAddress, dmyLocation, length);
+	}
 	return status;
 }
 
@@ -141,7 +185,7 @@ int _createTheCustomer(Customer customers[], int length) {
 		fgets(dmyLocation, 51, stdin);
 		printf("\n Ingrese Cuit del cliente : \n");
 		__fpurge(stdin);
-		fgets(dmyCuit, 13, stdin);
+		fgets(dmyCuit, 14, stdin);
 		status = crudCstmCreateMe(customers,i,dmyCoName, dmyCuit, dmyAddress, dmyLocation, length);
 	}else {
 		printf("\n ERROR: NO hay mas lugar disponible \n");

@@ -15,4 +15,6 @@
 	int mngCustomerModification(Customer customers[], int length);
 	int mngCustomerDelete(Customer customers[], int length, Order orders[], int ordLength);
 	int mngShowAllCustomers(Customer customers[], int length);
+
+	int mngCustomerGetKgTotRecyByCuitAndPlasticType(Customer customers[], int cstLength, Order orders[], int ordLength);
 #endif /* MANAGER_LIBS_MNGCUSTOMERS_H_ */
