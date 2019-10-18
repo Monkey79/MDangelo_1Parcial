@@ -84,7 +84,7 @@ void customerWithMLessKg(Customer customers[], Order orders[],int cstLength, int
 	}else
 		printf("\n No hay ningun pedido para ningun cliente para estado \n");
 }
-
+//D
 void customerWithMoreKg(Customer customers[], Order orders[],int cstLength, int ordLength){
 	float moreKgTot =-1.0;
 	int moreKgCstmId=-1;
@@ -93,6 +93,7 @@ void customerWithMoreKg(Customer customers[], Order orders[],int cstLength, int 
 	for(int i =0; i<cstLength; i++){
 		if(customers[i].isEmpty == FALSE){
 			aux = _getKgByCustmId(customers[i].id, orders, ordLength);
+			printf("\n que pasa cliente %d --kg-- %f \n",customers[i].id,aux);
 			if(aux>moreKgTot){
 				moreKgTot = aux;
 				moreKgCstmId = customers[i].id;
@@ -108,6 +109,7 @@ void customerWithMoreKg(Customer customers[], Order orders[],int cstLength, int 
 void customerWithMoreOrders(Customer customers[], Order orders[],int cstLength, int ordLength){
 	int moreOrdsCant =-1;
 	int moreCstmOrdsCantId=-1;
+	char companyName[50];
 	int aux = 0;
 
 	for(int i =0; i<cstLength; i++){
@@ -116,11 +118,12 @@ void customerWithMoreOrders(Customer customers[], Order orders[],int cstLength, 
 			if(aux>moreOrdsCant){
 				moreOrdsCant = aux;
 				moreCstmOrdsCantId = customers[i].id;
+				strcpy(companyName, customers[i].companyName);
 			}
 		}
 	}
 	if(moreOrdsCant>0){
-		printf("\n Cliente id=%d con mas cant de pedidos = %d", moreCstmOrdsCantId, moreOrdsCant);
+		printf("\n Cliente %s con id=%d con mas cant de pedidos = %d",companyName, moreCstmOrdsCantId, moreOrdsCant);
 	}else
 		printf("\n No hay ningun pedido para ningun cliente para estado \n");
 }
@@ -128,19 +131,21 @@ void customerWithMoreOrders(Customer customers[], Order orders[],int cstLength, 
 void customerWithMoreOrderStatus(Customer customers[], Order orders[],int cstLength, int ordLength, char *statusN){
 	int moreOrdsCant =-1;
 	int moreCstmOrdsCantId=-1;
+	char companyName[50];
 	int aux = 0;
 
 	for(int i =0; i<cstLength; i++){
 		if(customers[i].isEmpty == FALSE){
-			aux = _getCantOrdersByCustmId(customers[i].id, orders, ordLength);
+			aux = _getCantOrdersByCustmIdAndStatus(customers[i].id, orders, ordLength, statusN);
 			if(aux>moreOrdsCant){
 				moreOrdsCant = aux;
 				moreCstmOrdsCantId = customers[i].id;
+				strcpy(companyName,customers[i].companyName);
 			}
 		}
 	}
 	if(moreOrdsCant>0){
-		printf("\n Cliente id=%d con mas cant de pedidos en estado %s = %d", moreCstmOrdsCantId, statusN, moreOrdsCant);
+		printf("\n Cliente %s con id=%d tiene mas cant de pedidos en estado %s = %d",companyName, moreCstmOrdsCantId, statusN, moreOrdsCant);
 	}else
 		printf("\n No hay ningun pedido para ningun cliente para estado %s\n", statusN);
 }
@@ -151,7 +156,7 @@ int _getCantOrdersByCustmIdAndStatus(int customerId, Order orders[],int ordLengt
 	int ordersCant=0;
 
 	for(int e=0; e<ordLength; e++){
-		if((customerId == orders[e].customerId) && (strcmp(orders[e].status, statusN)==0))
+		if((customerId == orders[e].customerId) && (strcmp(orders[e].status, statusN)==0) && (orders[e].isEmpty == FALSE))
 			ordersCant++;
 	}
 	return ordersCant;
@@ -161,20 +166,24 @@ int _getCantOrdersByCustmId(int customerId, Order orders[],int ordLength){
 	int ordersCant=0;
 
 	for(int e=0; e<ordLength; e++){
-		if((customerId == orders[e].customerId))
+		if((customerId == orders[e].customerId) && (orders[e].isEmpty == FALSE))
 			ordersCant++;
 	}
 	return ordersCant;
 }
 
 int _getKgByCustmId(int customerId, Order orders[],int ordLength){
-	int kgTot=0.0;
+	float kgTot=0.0;
+	float kgRec=0.0;
 
 	for(int e=0; e<ordLength; e++){
-		if((customerId == orders[e].customerId))
+		if((customerId == orders[e].customerId) && (strcmp(orders[e].status, "Completado")==0)){
+			printf("\n orden id %d\n", orders[e].id);
 			kgTot+=orders[e].kgTot;
+			kgRec+=orders[e].hdpe+orders[e].ldpe+orders[e].pp;
+		}
 	}
-	return kgTot;
+	return (kgTot-kgRec);
 }
 
 int _getKgRecicledByCustmId(int customerId, Order orders[],int ordLength){

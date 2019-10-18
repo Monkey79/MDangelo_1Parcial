@@ -21,6 +21,8 @@ void _showCustomerOrdersCantByStatus(Customer customers[], Order orders[],int cs
 void _showCustomerOrdersPendingStatus(Customer customers[], Order orders[],int cstLength, int ordLength);
 void _showCustomerOrdersCompletedStatus(Customer customers[], Order orders[],int cstLength, int ordLength);
 
+void _thenShow(Customer cust, Order *pOrders, int ordLength);
+
 void checkAndShowCustomersOrdCantByOrderStatus(Customer customers[], Order orders[], char *status, int cstLength, int ordLength){
 	if(crudCstmCanUpdateDelete(customers, cstLength) == TRUE){
 		if(strcmp(status, ORD_STATUS_1)==0)
@@ -90,26 +92,30 @@ void _showCustomerOrdersPendingStatus(Customer customers[], Order orders[],int c
 }
 void _showCustomerOrdersCompletedStatus(Customer customers[], Order orders[],int cstLength, int ordLength){
 	printf("\n==Cliente.Ordenes en estado Completado==\n");
+	Order *pOredersAux[ordLength];
+
 	for(int i=0; i<cstLength; i++){
 		if(customers[i].isEmpty == FALSE){
-			printf("\n==Cliente.ID: %d===", customers[i].id);
+			/*printf("\n==Cliente.ID: %d===", customers[i].id);
 			printf("\n==Cliente.Empresa: %s===", customers[i].companyName);
 			printf("\n==Cliente.Direccion: %s===", customers[i].adress);
 			printf("\n==Cliente.Localidad: %s===", customers[i].location);
-			printf("\n==Cliente.Cuit: %s===", customers[i].cuit);
+			printf("\n==Cliente.Cuit: %s===", customers[i].cuit);*/
 			for(int e=0; e<ordLength; e++){
 				if( (customers[i].id == orders[e].customerId) && (strcmp(orders[e].status, ORD_STATUS_2)==0)){
-					printf("\n\t==Orden.ID: %d===", orders[e].id);
-					printf("\n\t==Orden.Customer_ID: %d===", orders[e].customerId);
+					/*printf("\n\t==Orden.ID: %d===", orders[e].id);
 					printf("\n\t==Orden.Customer_ID: %d===", orders[e].customerId);
 					printf("\n\t==Orden.Kg_Totales: %f===", orders[e].kgTot);
 					printf("\n\t==Orden.Estado: %s===", orders[e].status);
 					printf("\n\t==Orden.Kg_HDPE: %f===", orders[e].hdpe);
 					printf("\n\t==Orden.Kg_LDPE: %f===", orders[e].ldpe);
-					printf("\n\t==Orden.Kg_PP: %f===", orders[e].pp);
+					printf("\n\t==Orden.Kg_PP: %f===", orders[e].pp);*/
+
+					*(pOredersAux+e) = &orders[e];
 				}
 			}
 			printf("\n=====================================\n");
 		}
 	}
 }
+

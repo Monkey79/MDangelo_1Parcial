@@ -101,30 +101,37 @@ int main(void) {
 					showOrdersCustomersByStatus(customers, orders, "Completado", CUST_TOP, ORDERS_TOP);
 					break;
 				case PRINT_MORE_PENDING:
+					//A
 					printf("\nImprimir Cliente con mas pedidos Pendiente\n");
 					customerWithMoreOrderStatus(customers, orders,CUST_TOP, ORDERS_TOP, "Pendiente");
 					break;
 				case PRINT_MORE_COMPLETED:
+					//B
 					printf("\nImprimir Cliente con mas pedidos Completado\n");
 					customerWithMoreOrderStatus(customers, orders,CUST_TOP, ORDERS_TOP, "Completado");
 					break;
 				case PRINT_MORE_CUSTOMERS:
+					//C
 					printf("\nImprimir Cliente con mas pedidos\n");
 					customerWithMoreOrders(customers, orders,CUST_TOP, ORDERS_TOP);
 					break;
 				case PRINT_MORE_CUSTOMERS_KG:
+					//D
 					printf("\nImprimir Cliente con mas KG por pedidos\n");
 					customerWithMoreKg(customers, orders,CUST_TOP, ORDERS_TOP);
 					break;
 				case PRINT_LESS_CUSTOMERS_KG:
+					//E
 					printf("\nImprimir Cliente con menos KG por pedidos\n");
 					customerWithMLessKg(customers, orders,CUST_TOP, ORDERS_TOP);
 					break;
 				case PRINT_MORE_1000_KG:
+					//F
 					printf("\nImprimir cant Cliente que reciclaron mas de 1000KG\n");
 					customerWithMoreThan1000KgRecicled(customers, orders,CUST_TOP, ORDERS_TOP);
 					break;
 				case PRINT_LESS_100_KG:
+					//G
 					printf("\nImprimir cant Cliente que reciclaron menos de 100KG\n");
 					customerWithLessThan100KgRecicled(customers, orders,CUST_TOP, ORDERS_TOP);
 					break;

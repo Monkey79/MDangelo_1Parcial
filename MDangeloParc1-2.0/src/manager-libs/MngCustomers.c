@@ -119,46 +119,70 @@ int createHarcordCustomer(Customer customers[], int length){
 		strcpy(dmyLocation, "CABA");
 		status = crudCstmCreateMe(customers,i,dmyCoName, dmyCuit, dmyAddress, dmyLocation, length);
 	}
+	char dmyCoName2[51];
+	char dmyCuit2[13];
+	char dmyAddress2[51];
+	char dmyLocation2[51];
 
 	i = _getFirstEmptyCustomerIndex(customers, length);
 	if(i>=0){
-		strcpy(dmyCoName, "DATASOFT");
-		strcpy(dmyCuit, "30-44556677-6");
-		strcpy(dmyAddress, "Corrientes 2547");
-		strcpy(dmyLocation, "CABA");
-		status = crudCstmCreateMe(customers,i,dmyCoName, dmyCuit, dmyAddress, dmyLocation, length);
+		strcpy(dmyCoName2, "DATASOFT");
+		strcpy(dmyCuit2, "30-44556677-6");
+		strcpy(dmyAddress2, "Corrientes 2547");
+		strcpy(dmyLocation2, "CABA");
+		status = crudCstmCreateMe(customers,i,dmyCoName2, dmyCuit2, dmyAddress2, dmyLocation2, length);
 	}
+	char dmyCoName3[51];
+	char dmyCuit3[13];
+	char dmyAddress3[51];
+	char dmyLocation3[51];
+
 	i = _getFirstEmptyCustomerIndex(customers, length);
 	if(i>=0){
 		strcpy(dmyCoName, "NESTLE");
 		strcpy(dmyCuit, "30-88995521-9");
 		strcpy(dmyAddress, "cucha cucha 555");
 		strcpy(dmyLocation, "LANUS");
-		status = crudCstmCreateMe(customers,i,dmyCoName, dmyCuit, dmyAddress, dmyLocation, length);
+		status = crudCstmCreateMe(customers,i,dmyCoName3, dmyCuit3, dmyAddress3, dmyLocation3, length);
 	}
+
+	char dmyCoName4[51];
+	char dmyCuit4[13];
+	char dmyAddress4[51];
+	char dmyLocation4[51];
 	i = _getFirstEmptyCustomerIndex(customers, length);
 	if(i>=0){
 		strcpy(dmyCoName, "TERRABUSI");
 		strcpy(dmyCuit, "30-56781423-5");
 		strcpy(dmyAddress, "rocha 784");
 		strcpy(dmyLocation, "QUILMES");
-		status = crudCstmCreateMe(customers,i,dmyCoName, dmyCuit, dmyAddress, dmyLocation, length);
+		status = crudCstmCreateMe(customers,i,dmyCoName4, dmyCuit4, dmyAddress4, dmyLocation4, length);
 	}
+
+	char dmyCoName5[51];
+	char dmyCuit5[13];
+	char dmyAddress5[51];
+	char dmyLocation5[51];
 	i = _getFirstEmptyCustomerIndex(customers, length);
 	if(i>=0){
 		strcpy(dmyCoName, "DIA");
 		strcpy(dmyCuit, "31-54581253-3");
 		strcpy(dmyAddress, "Mitre 750");
 		strcpy(dmyLocation, "AVELLANEDA");
-		status = crudCstmCreateMe(customers,i,dmyCoName, dmyCuit, dmyAddress, dmyLocation, length);
+		status = crudCstmCreateMe(customers,i,dmyCoName5, dmyCuit5, dmyAddress5, dmyLocation5, length);
 	}
+
+	char dmyCoName6[51];
+	char dmyCuit6[13];
+	char dmyAddress6[51];
+	char dmyLocation6[51];
 	i = _getFirstEmptyCustomerIndex(customers, length);
 	if(i>=0){
 		strcpy(dmyCoName, "QUILMES");
 		strcpy(dmyCuit, "30-51485759-6");
 		strcpy(dmyAddress, "rocha 741");
 		strcpy(dmyLocation, "QUILMES");
-		status = crudCstmCreateMe(customers,i,dmyCoName, dmyCuit, dmyAddress, dmyLocation, length);
+		status = crudCstmCreateMe(customers,i,dmyCoName6, dmyCuit6, dmyAddress6, dmyLocation6, length);
 	}
 	return status;
 }
