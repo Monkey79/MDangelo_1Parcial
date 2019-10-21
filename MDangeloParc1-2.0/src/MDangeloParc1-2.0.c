@@ -15,6 +15,7 @@
 #include "commons-libs/PrintHelper.h"
 #include "commons-libs/InfoMng.h"
 
+
 #include "crud-libs/CrudCustomers.h"
 #include "crud-libs/CrudOrders.h"
 
@@ -45,6 +46,8 @@
 #define  PRINT_LESS_CUSTOMERS_KG 13
 #define  PRINT_MORE_1000_KG 14
 #define  PRINT_LESS_100_KG 15
+#define  PRINT_ORDS_COMPLETED 16
+#define  PRINT_ORDS_PENDING_LOCATION 17
 
 
 #define  EXIT 29
@@ -54,11 +57,15 @@
 int main(void) {
 	int status;
 	Customer customers[CUST_TOP];
+
 	Order orders[ORDERS_TOP];
+
 
 	status = crudCstmInitializeAll(customers, CUST_TOP);
 	status = crudOrdsInitializeAll(orders, ORDERS_TOP);
 	int userSelect = -1;
+
+
 
 	if(HARCODE_ON == TRUE){
 		createHarcordCustomer(customers, CUST_TOP);
@@ -118,12 +125,12 @@ int main(void) {
 				case PRINT_MORE_CUSTOMERS_KG:
 					//D
 					printf("\nImprimir Cliente con mas KG por pedidos\n");
-					customerWithMoreKg(customers, orders,CUST_TOP, ORDERS_TOP);
+					customerWithMoreRecycledKg(customers, orders,CUST_TOP, ORDERS_TOP);
 					break;
 				case PRINT_LESS_CUSTOMERS_KG:
 					//E
 					printf("\nImprimir Cliente con menos KG por pedidos\n");
-					customerWithMLessKg(customers, orders,CUST_TOP, ORDERS_TOP);
+					customerWithLessRecyblessKg(customers, orders,CUST_TOP, ORDERS_TOP);
 					break;
 				case PRINT_MORE_1000_KG:
 					//F
@@ -135,8 +142,19 @@ int main(void) {
 					printf("\nImprimir cant Cliente que reciclaron menos de 100KG\n");
 					customerWithLessThan100KgRecicled(customers, orders,CUST_TOP, ORDERS_TOP);
 					break;
+				case PRINT_ORDS_COMPLETED:
+					//H
+					printf("\nImprimir Pedidos Completados\n");
+					infoPrintCompletedOrds(customers, orders,CUST_TOP, ORDERS_TOP);
+					break;
+				case PRINT_ORDS_PENDING_LOCATION:
+					//I
+					printf("\nImprimir Pedidos Pendientes por Localidad\n");
+					printPendingOrdersByLocation(customers, orders,CUST_TOP, ORDERS_TOP);
+					break;
 				default:
 					printf("\nOPCION NO VALIDA = SALIENDO DEL PROGRAMA\n");
+
 					break;
 			}
 		}while(userSelect==CREATE_CUSTOMER || userSelect==UPDATE_CUSTOMER
@@ -146,7 +164,8 @@ int main(void) {
 				|| userSelect==PRINT_MORE_PENDING || userSelect==PRINT_MORE_COMPLETED
 				|| userSelect==PRINT_MORE_CUSTOMERS || userSelect==PRINT_MORE_CUSTOMERS_KG
 				|| userSelect==PRINT_LESS_CUSTOMERS_KG || userSelect==PRINT_MORE_1000_KG
-				|| userSelect==PRINT_LESS_100_KG);
+				|| userSelect==PRINT_LESS_100_KG || userSelect==PRINT_ORDS_COMPLETED
+				|| userSelect==PRINT_ORDS_PENDING_LOCATION);
 	}else {
 		printf("\nERROR=>Application error...!!\n");
 	}

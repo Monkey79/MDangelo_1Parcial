@@ -9,7 +9,7 @@ struct{
 	int id; //AI
 	char companyName[50];
 	char adress[30];
-	char cuit[14];
+	char cuit[15];
 	char location[30];
 	int isEmpty;
 }typedef Customer;

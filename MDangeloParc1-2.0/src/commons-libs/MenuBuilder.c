@@ -16,13 +16,15 @@
 #define  OPTION_7 "7-Imprimir pedidos pendientes\n"
 #define  OPTION_8 "8-Imprimir pedidos procesados\n"
 
-#define  OPTION_9 "9-Imprimir cliente con mas Pendientes\n"
-#define  OPTION_10 "10-Imprimir cliente con mas Completados\n"
-#define  OPTION_11 "11-Imprimir cliente con mas Pedidos\n"
-#define  OPTION_12 "12-Imprimir cliente con mas Kg\n"
-#define  OPTION_13 "13-Imprimir cliente con menos Kg\n"
-#define  OPTION_14 "14-Imprimir cant de clientes que reciclaron mas 1000kg\n"
-#define  OPTION_15 "15-Imprimir cant de clientes que reciclaron menos 100kg\n"
+#define  OPTION_9 "9 [A]-Imprimir cliente con mas Pendientes\n"
+#define  OPTION_10 "10 [B]-Imprimir cliente con mas Completados\n"
+#define  OPTION_11 "11 [C]-Imprimir cliente con mas Pedidos\n"
+#define  OPTION_12 "12 [D]-Imprimir cliente que reciclo mas Kg\n"
+#define  OPTION_13 "13 [E]-Imprimir cliente que reciclo menos Kg\n"
+#define  OPTION_14 "14 [F]-Imprimir cant de clientes que reciclaron mas 1000kg\n"
+#define  OPTION_15 "15 [G]-Imprimir cant de clientes que reciclaron menos 100kg\n"
+#define  OPTION_16 "16 [H]-Imprimir pedidos Completados\n"
+#define  OPTION_17 "17 [I]-Imprimir cantidad de Pedidos Pendientes por Localidad\n"
 
 
 #define  OPTION_29 "29-Salir\n"
@@ -46,6 +48,8 @@ void mngbBuildMenuAndGetUserSelection(int *userSelection){
 	printf(OPTION_13);
 	printf(OPTION_14);
 	printf(OPTION_15);
+	printf(OPTION_16);
+	printf(OPTION_17);
 
 	printf(OPTION_29);
 	printf(MENU_FOOTER);

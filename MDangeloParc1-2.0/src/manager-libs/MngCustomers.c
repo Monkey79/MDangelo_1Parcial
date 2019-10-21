@@ -17,10 +17,6 @@
 #include "../crud-libs/CrudCustomers.h"
 #include "../manager-libs/MngCustomers.h"
 
-#define SUCCESS 0
-#define ERROR -1
-#define TRUE  1
-#define FALSE 0
 
 int _createTheCustomer(Customer customers[], int length);
 int _updateTheCustomer(Customer customers[], int length);
@@ -33,20 +29,15 @@ int mngCustomerGetKgTotRecyByCuitAndPlasticType(Customer customers[], int cstLen
 	int status = ERROR;
 	char cuit[14];
 	int plastType=1;
-
 	printf("\n Ingrese el CUIT\n");
 	__fpurge(stdin);
 	fgets(cuit, 14, stdin);
-
-
 	do{
 		printf("\n Ingrese tipo de plastico [1=hdpe 2=ldpe 3=pp] \n");
 		__fpurge(stdin);
 		//scanf("%d");
 
 	}while(plastType!=1 && plastType!=2 && plastType!=3);
-
-
 	return status;
 }
 
@@ -106,9 +97,9 @@ int mngShowAllCustomers(Customer customers[], int length) {
 
 int createHarcordCustomer(Customer customers[], int length){
 	char dmyCoName[51];
-	char dmyCuit[13];
+	char dmyCuit[15];
 	char dmyAddress[51];
-	char dmyLocation[51];
+	char dmyLocation[30];
 	int status;
 
 	int i = _getFirstEmptyCustomerIndex(customers, length);
@@ -120,9 +111,9 @@ int createHarcordCustomer(Customer customers[], int length){
 		status = crudCstmCreateMe(customers,i,dmyCoName, dmyCuit, dmyAddress, dmyLocation, length);
 	}
 	char dmyCoName2[51];
-	char dmyCuit2[13];
+	char dmyCuit2[15];
 	char dmyAddress2[51];
-	char dmyLocation2[51];
+	char dmyLocation2[30];
 
 	i = _getFirstEmptyCustomerIndex(customers, length);
 	if(i>=0){
@@ -133,55 +124,55 @@ int createHarcordCustomer(Customer customers[], int length){
 		status = crudCstmCreateMe(customers,i,dmyCoName2, dmyCuit2, dmyAddress2, dmyLocation2, length);
 	}
 	char dmyCoName3[51];
-	char dmyCuit3[13];
+	char dmyCuit3[15];
 	char dmyAddress3[51];
-	char dmyLocation3[51];
+	char dmyLocation3[30];
 
 	i = _getFirstEmptyCustomerIndex(customers, length);
 	if(i>=0){
 		strcpy(dmyCoName, "NESTLE");
 		strcpy(dmyCuit, "30-88995521-9");
 		strcpy(dmyAddress, "cucha cucha 555");
-		strcpy(dmyLocation, "LANUS");
+		strcpy(dmyLocation3, "LANUS");
 		status = crudCstmCreateMe(customers,i,dmyCoName3, dmyCuit3, dmyAddress3, dmyLocation3, length);
 	}
 
 	char dmyCoName4[51];
-	char dmyCuit4[13];
+	char dmyCuit4[15];
 	char dmyAddress4[51];
-	char dmyLocation4[51];
+	char dmyLocation4[30];
 	i = _getFirstEmptyCustomerIndex(customers, length);
 	if(i>=0){
 		strcpy(dmyCoName, "TERRABUSI");
 		strcpy(dmyCuit, "30-56781423-5");
 		strcpy(dmyAddress, "rocha 784");
-		strcpy(dmyLocation, "QUILMES");
+		strcpy(dmyLocation4, "QUILMES");
 		status = crudCstmCreateMe(customers,i,dmyCoName4, dmyCuit4, dmyAddress4, dmyLocation4, length);
 	}
 
 	char dmyCoName5[51];
-	char dmyCuit5[13];
+	char dmyCuit5[15];
 	char dmyAddress5[51];
-	char dmyLocation5[51];
+	char dmyLocation5[30];
 	i = _getFirstEmptyCustomerIndex(customers, length);
 	if(i>=0){
 		strcpy(dmyCoName, "DIA");
 		strcpy(dmyCuit, "31-54581253-3");
 		strcpy(dmyAddress, "Mitre 750");
-		strcpy(dmyLocation, "AVELLANEDA");
+		strcpy(dmyLocation5, "AVELLANEDA");
 		status = crudCstmCreateMe(customers,i,dmyCoName5, dmyCuit5, dmyAddress5, dmyLocation5, length);
 	}
 
 	char dmyCoName6[51];
-	char dmyCuit6[13];
+	char dmyCuit6[15];
 	char dmyAddress6[51];
-	char dmyLocation6[51];
+	char dmyLocation6[30];
 	i = _getFirstEmptyCustomerIndex(customers, length);
 	if(i>=0){
 		strcpy(dmyCoName, "QUILMES");
 		strcpy(dmyCuit, "30-51485759-6");
 		strcpy(dmyAddress, "rocha 741");
-		strcpy(dmyLocation, "QUILMES");
+		strcpy(dmyLocation6, "QUILMES");
 		status = crudCstmCreateMe(customers,i,dmyCoName6, dmyCuit6, dmyAddress6, dmyLocation6, length);
 	}
 	return status;

@@ -27,6 +27,8 @@ int crudOrdsInitializeAll(Order orders[], int length) {
 	if(orders != NULL && length>0){
 		status = SUCCESS;
 		for (int i = 0; i < length; i++) {
+			orders[i].id = 0;
+			orders[i].customerId = 0;
 			orders[i].isEmpty = TRUE;
 		}
 	}
@@ -62,6 +64,7 @@ int crudOrdsUpdateMePlasticsKgs(Order orders[], int i,float hdpe,float ldpe,floa
 		orders[i].hdpe = hdpe;
 		orders[i].ldpe = ldpe;
 		orders[i].pp = pp;
+		orders[i].isEmpty = FALSE;
 	    strcpy(orders[i].status, STATUS_2);
 	    printf("\n Order with ID %d updated OK!!\n",orders[i].id);
 	}

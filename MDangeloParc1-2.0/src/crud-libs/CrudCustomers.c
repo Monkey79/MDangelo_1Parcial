@@ -20,6 +20,7 @@ int crudCstmInitializeAll(Customer customers[], int length){
 	if(customers!= NULL && length>0){
 		status = SUCCESS;
 		for (int i = 0; i < length;i++) {
+			customers[i].id = 0;
 			customers[i].isEmpty = TRUE;
 		}
 	}
