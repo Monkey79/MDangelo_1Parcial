@@ -1,11 +1,11 @@
 Clientes:
 
-ID:1 - Telefonica - 30-11223344-5 - CABA - Lima 1234
+ID:1 - Telefonica - 30-11223344-5 - CABA - Lima 1234 -->
 ID:2 - DATASOFT - 30-44556677-6 - CABA - Corrientes 2547
-ID:3 - NESTLE - 30-88995521-9 - LANUS - cucha cucha 555
-ID:4 - TERRABUSI - 30-56781423-5 - QUILMES - rocha 784
+ID:3 - NESTLE - 30-88995521-9 - LANUS - cucha cucha 555 -->
+ID:4 - TERRABUSI - 30-56781423-5 - QUILMES - rocha 784 -->
 ID:5 - DIA - 31-54581253-3 - AVELLANEDA - Mitre 750
-ID:6 - QUILMES - 30-51485759-6 - QUILMES - rocha 741
+ID:6 - QUILMES - 30-51485759-6 - QUILMES - rocha 741--->
 
 Pedidos:
 

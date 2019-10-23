@@ -48,6 +48,8 @@
 #define  PRINT_LESS_100_KG 15
 #define  PRINT_ORDS_COMPLETED 16
 #define  PRINT_ORDS_PENDING_LOCATION 17
+#define  PRINT_PP_AVRG 18
+#define  PRINT_PLAST_CUIT_TOT 19
 
 
 #define  EXIT 29
@@ -152,9 +154,18 @@ int main(void) {
 					printf("\nImprimir Pedidos Pendientes por Localidad\n");
 					printPendingOrdersByLocation(customers, orders,CUST_TOP, ORDERS_TOP);
 					break;
+				case PRINT_PP_AVRG:
+					//J
+					printf("\nImprimir promedio PP por cliente \n");
+					ppAverageByClient(customers, orders,CUST_TOP, ORDERS_TOP);
+					break;
+				case PRINT_PLAST_CUIT_TOT:
+					//K
+					printf("\nImprimir cant kg por cuit y tipo de plastico\n");
+					printKgTOtByCuitAndPlasticType(customers, orders,CUST_TOP, ORDERS_TOP);
+					break;
 				default:
 					printf("\nOPCION NO VALIDA = SALIENDO DEL PROGRAMA\n");
-
 					break;
 			}
 		}while(userSelect==CREATE_CUSTOMER || userSelect==UPDATE_CUSTOMER
@@ -165,7 +176,8 @@ int main(void) {
 				|| userSelect==PRINT_MORE_CUSTOMERS || userSelect==PRINT_MORE_CUSTOMERS_KG
 				|| userSelect==PRINT_LESS_CUSTOMERS_KG || userSelect==PRINT_MORE_1000_KG
 				|| userSelect==PRINT_LESS_100_KG || userSelect==PRINT_ORDS_COMPLETED
-				|| userSelect==PRINT_ORDS_PENDING_LOCATION);
+				|| userSelect==PRINT_ORDS_PENDING_LOCATION || userSelect==PRINT_PP_AVRG
+				|| userSelect==PRINT_PLAST_CUIT_TOT);
 	}else {
 		printf("\nERROR=>Application error...!!\n");
 	}

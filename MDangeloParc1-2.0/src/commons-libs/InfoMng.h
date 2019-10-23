@@ -21,6 +21,8 @@ void customerWithMoreOrderStatus(Customer customers[], Order orders[],int cstLen
 
 void infoPrintCompletedOrds(Customer customers[], Order orders[],int cstLength, int ordLength);
 void printPendingOrdersByLocation(Customer customers[], Order orders[],int cstLength, int ordLength);
+void ppAverageByClient(Customer customers[], Order orders[],int cstLength, int ordLength);
+void printKgTOtByCuitAndPlasticType(Customer customers[], Order orders[],int cstLength, int ordLength);
 
 
 #endif /* COMMONS_LIBS_INFOMNG_H_ */

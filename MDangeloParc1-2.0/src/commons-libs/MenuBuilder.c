@@ -25,6 +25,8 @@
 #define  OPTION_15 "15 [G]-Imprimir cant de clientes que reciclaron menos 100kg\n"
 #define  OPTION_16 "16 [H]-Imprimir pedidos Completados\n"
 #define  OPTION_17 "17 [I]-Imprimir cantidad de Pedidos Pendientes por Localidad\n"
+#define  OPTION_18 "18 [J]-Imprimir cantidad de PP reciclado por CLientes\n"
+#define  OPTION_19 "19 [K]-Imprimir cantitad kg por: Tipo y Cuit-Cliente\n"
 
 
 #define  OPTION_29 "29-Salir\n"
@@ -50,6 +52,8 @@ void mngbBuildMenuAndGetUserSelection(int *userSelection){
 	printf(OPTION_15);
 	printf(OPTION_16);
 	printf(OPTION_17);
+	printf(OPTION_18);
+	printf(OPTION_19);
 
 	printf(OPTION_29);
 	printf(MENU_FOOTER);

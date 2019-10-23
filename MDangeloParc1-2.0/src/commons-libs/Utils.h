@@ -13,6 +13,8 @@
 
 void utlsGetOrdersByCustomerId(Customer custm,Order ordersVc[],int ordLength, Order ordersByCstmVc[]);
 void utlsGetCleanString(char source[], char dest[]);
+int utilsGetPlasticType();
+int utilGetCustomerIdByCuit(Customer customers[], int cstmLength);
 
 
 #endif /* COMMONS_LIBS_UTILS_H_ */

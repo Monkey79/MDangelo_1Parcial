@@ -130,9 +130,9 @@ int createHarcordCustomer(Customer customers[], int length){
 
 	i = _getFirstEmptyCustomerIndex(customers, length);
 	if(i>=0){
-		strcpy(dmyCoName, "NESTLE");
-		strcpy(dmyCuit, "30-88995521-9");
-		strcpy(dmyAddress, "cucha cucha 555");
+		strcpy(dmyCoName3, "NESTLE");
+		strcpy(dmyCuit3, "30-88995521-9");
+		strcpy(dmyAddress3, "cucha cucha 555");
 		strcpy(dmyLocation3, "LANUS");
 		status = crudCstmCreateMe(customers,i,dmyCoName3, dmyCuit3, dmyAddress3, dmyLocation3, length);
 	}
@@ -143,9 +143,9 @@ int createHarcordCustomer(Customer customers[], int length){
 	char dmyLocation4[30];
 	i = _getFirstEmptyCustomerIndex(customers, length);
 	if(i>=0){
-		strcpy(dmyCoName, "TERRABUSI");
-		strcpy(dmyCuit, "30-56781423-5");
-		strcpy(dmyAddress, "rocha 784");
+		strcpy(dmyCoName4, "TERRABUSI");
+		strcpy(dmyCuit4, "30-56781423-5");
+		strcpy(dmyAddress4, "rocha 784");
 		strcpy(dmyLocation4, "QUILMES");
 		status = crudCstmCreateMe(customers,i,dmyCoName4, dmyCuit4, dmyAddress4, dmyLocation4, length);
 	}
@@ -156,9 +156,9 @@ int createHarcordCustomer(Customer customers[], int length){
 	char dmyLocation5[30];
 	i = _getFirstEmptyCustomerIndex(customers, length);
 	if(i>=0){
-		strcpy(dmyCoName, "DIA");
-		strcpy(dmyCuit, "31-54581253-3");
-		strcpy(dmyAddress, "Mitre 750");
+		strcpy(dmyCoName5, "DIA");
+		strcpy(dmyCuit5, "31-54581253-3");
+		strcpy(dmyAddress5, "Mitre 750");
 		strcpy(dmyLocation5, "AVELLANEDA");
 		status = crudCstmCreateMe(customers,i,dmyCoName5, dmyCuit5, dmyAddress5, dmyLocation5, length);
 	}
@@ -169,9 +169,9 @@ int createHarcordCustomer(Customer customers[], int length){
 	char dmyLocation6[30];
 	i = _getFirstEmptyCustomerIndex(customers, length);
 	if(i>=0){
-		strcpy(dmyCoName, "QUILMES");
-		strcpy(dmyCuit, "30-51485759-6");
-		strcpy(dmyAddress, "rocha 741");
+		strcpy(dmyCoName6, "QUILMES");
+		strcpy(dmyCuit6, "30-51485759-6");
+		strcpy(dmyAddress6, "rocha 741");
 		strcpy(dmyLocation6, "QUILMES");
 		status = crudCstmCreateMe(customers,i,dmyCoName6, dmyCuit6, dmyAddress6, dmyLocation6, length);
 	}
