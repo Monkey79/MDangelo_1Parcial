@@ -123,6 +123,10 @@ void infoPrintCompletedOrds(Customer customers[], Order orders[],int cstLength, 
 				printf("porcentaje de plastico reciclado= %d \n",result);
 				printf("\n********************************\n");
 			}
+			cstmId=0;
+			kgTot=0;
+			kgRecy=0;
+			show=FALSE;
 		}
 	}
 }
