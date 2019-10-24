@@ -28,7 +28,7 @@ int _getKgRecycled(int cstnId, Order order);
 int  _getClientsAmountInStatusCompleted(Order orders[],int ordLength);
 float _getKgTotalPPType(Order orders[],int ordLength);
 void _calcKgPlasticTypeByCustomerId(int plsType, int indexCstm, Order orders[], int ordLength);
-void _showPerct(Order order,float kgRecy, float kgTot, int ordId, char custCUit[]);
+void _getValuesPerct(Order orders[], int custmId, int ordLength, int *kgRecy, int *KgTot,int *show);
 
 float _getKgTotalPPType(Order orders[],int ordLength) {
 	float ppTot=0.0;
@@ -106,62 +106,36 @@ void printPendingOrdersByLocation(Customer customers[], Order orders[],int cstLe
 }
 
 void infoPrintCompletedOrds(Customer customers[], Order orders[],int cstLength, int ordLength){
-	int j=0;
-	int cont=TRUE;
-	float result = 0.0;
+	int cstmId=0;
 	int kgTot=0;
 	int kgRecy=0;
+	int show=FALSE;
+	int result;
 
 	for(int i=0;i<cstLength;i++){
 		if((customers[i].isEmpty==FALSE)==TRUE){
-			for(int e=0;e<ordLength;e++){
-
-				if(( (customers[i].id == orders[e].customerId)==TRUE)
-						&& (strcmp(orders[e].status,"Completado")==0) ){
-					printf("\n-->id-->%d\n",orders[e].customerId);
-					kgRecy += (int)orders[e].hdpe + orders[e].ldpe + orders[e].pp;
-					kgTot +=(int)(orders[e].kgTot);
-				}
-				printf("-->que envio %d \n",kgRecy);
-				printf("-->que envio %d \n",kgTot);
-				//_showPerct(orders[e],kgRecy, kgTot, orders[e].id, customers[i].cuit);
-				kgRecy = 0;
-				kgTot = 0;
-			}
-			/*do {
-				cont= (customers[i].id == orders[j].customerId) && ((strcmp(orders[j].status,"Completado")==0));
-				if(cont==TRUE){
-					kgTot+=(orders[j].kgTot);
-					kgRecy+=orders[j].hdpe+orders[j].ldpe+orders[j].pp;
-				}
-				j++;
-			} while (j<ordLength && cont==TRUE);
-			if(cont==FALSE) {
-				result = 100*(kgRecy/kgTot);
-				printf("Id de Pedido = %d\n",orders[--j].id);
-				printf("CUIT del cliente = %s\n",customers[--j].cuit);
-				printf("porcentaje de plastico reciclado= %d%% \n",result);
+			cstmId = customers[i].id;
+			_getValuesPerct(orders, cstmId, ordLength, &kgRecy, &kgTot, &show);
+			if(show == TRUE){
+				result = (100*kgRecy)/kgTot;
+				printf("Id del cliente = %d\n",cstmId);
+				printf("CUIT del cliente = %s\n",customers[i].cuit);
+				printf("porcentaje de plastico reciclado= %d \n",result);
 				printf("\n********************************\n");
 			}
-			j=0;*/
-
 		}
-
 	}
 }
 
-void _showPerct(Order order,float kgRecy, float kgTot, int ordId, char custCUit[]){
-	if(order.isEmpty == FALSE){
-		printf("\n totales %f\n",kgTot);
-		printf("\n recy %f\n",kgRecy);
-
-		int result = (int)100*(kgRecy/kgTot);
-		printf("Id de Pedido = %d\n",ordId);
-		printf("CUIT del cliente = %s\n",custCUit);
-		printf("porcentaje de plastico reciclado= %d%% \n",result);
-		printf("\n********************************\n");
+void _getValuesPerct(Order orders[], int custmId, int ordLength, int *kgRecy, int *KgTot, int *show){
+	for(int i=0; i < ordLength; i++){
+		if((orders[i].isEmpty == FALSE)==TRUE && (orders[i].customerId==custmId)==TRUE
+				&& (strcmp(orders[i].status,"Completado")==0)){
+			*kgRecy += orders[i].hdpe + orders[i].ldpe + orders[i].pp;
+			*KgTot += orders[i].kgTot;
+			*show = TRUE;
+		}
 	}
-
 }
 
 
